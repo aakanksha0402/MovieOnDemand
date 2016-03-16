@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :theater_staffs
   resources :staff_permissions
   resources :theaters
-  resources :users_pages
+  # resources :user_pages
+  get 'user_pages/edit_user_details'
+  patch 'user_pages/update_user_details'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :homes
   resources :theatres

@@ -47,7 +47,7 @@
         <%=link_to "Screening",'#',class: "btn btn-large"%>
         <%=link_to "Create Screening",'#',class: "btn btn-large"%>
         <% if user_signed_in? %>
-          <%=link_to "Edit Profile",class: "btn btn-large"%>
+          <%=link_to "Edit Profile",user_pages_edit_user_details_path,class: "btn btn-large"%>
         <% end %>
       </div>
     </div><!-- /.navbar-collapse -->

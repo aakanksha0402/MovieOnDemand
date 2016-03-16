@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :resource_name, :resource, :devise_mapping, :resource_class
+  helper_method :resource_name, :resource, :devise_mapping, :resource_class, :user_details_empty
 
   def resource_name
     :user
@@ -23,9 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-
-      root_path
-
+    user_pages_edit_user_details_path
   end
 
   protected
