@@ -1,0 +1,17 @@
+<div class="col-md-offset-5 col-md-3">
+  <h4>Forgot Your Password?</h4>
+  <h5 class="text-primary">Not an issue. Enter your email id, click on the link given and reset your password. Voila, there yo go.</p>
+  </h5>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group">
+
+    <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "You Registerd E-Mail Id" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Send me a link to Reset my password", class: 'btn btn-block btn-primary' %>
+  </div>
+<% end %>
+</div>

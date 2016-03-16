@@ -1,0 +1,41 @@
+<%= form_for(@seat_price) do |f| %>
+  <% if @seat_price.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@seat_price.errors.count, "error") %> prohibited this seat_price from being saved:</h2>
+
+      <ul>
+      <% @seat_price.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :theater_id %><br>
+    <%= f.text_field :theater_id %>
+  </div>
+  <div class="field">
+    <%= f.label :weekdays %><br>
+    <%= f.text_field :weekdays %>
+  </div>
+  <div class="field">
+    <%= f.label :weekdays %><br>
+    <%= f.text_field :weekdays %>
+  </div>
+  <div class="field">
+    <%= f.label :weekends %><br>
+    <%= f.text_field :weekends %>
+  </div>
+  <div class="field">
+    <%= f.label :weekends %><br>
+    <%= f.text_field :weekends %>
+  </div>
+  <div class="field">
+    <%= f.label :is_deleted %><br>
+    <%= f.check_box :is_deleted %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

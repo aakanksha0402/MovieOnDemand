@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Theaters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Users</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Pincode</th>
+      <th>Unique key</th>
+      <th>Total screens</th>
+      <th>Enable</th>
+      <th>Is deleted</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @theaters.each do |theater| %>
+      <tr>
+        <td><%= theater.users %></td>
+        <td><%= theater.name %></td>
+        <td><%= theater.phone %></td>
+        <td><%= theater.address %></td>
+        <td><%= theater.city %></td>
+        <td><%= theater.state %></td>
+        <td><%= theater.country %></td>
+        <td><%= theater.pincode %></td>
+        <td><%= theater.unique_key %></td>
+        <td><%= theater.total_screens %></td>
+        <td><%= theater.enable %></td>
+        <td><%= theater.is_deleted %></td>
+        <td><%= link_to 'Show', theater %></td>
+        <td><%= link_to 'Edit', edit_theater_path(theater) %></td>
+        <td><%= link_to 'Destroy', theater, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Theater', new_theater_path %>

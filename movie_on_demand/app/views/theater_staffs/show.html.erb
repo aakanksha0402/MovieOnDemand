@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @theater_staff.user %>
+</p>
+
+<p>
+  <strong>Theater:</strong>
+  <%= @theater_staff.theater %>
+</p>
+
+<p>
+  <strong>Staff permission:</strong>
+  <%= @theater_staff.staff_permission %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @theater_staff.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_theater_staff_path(@theater_staff) %> |
+<%= link_to 'Back', theater_staffs_path %>

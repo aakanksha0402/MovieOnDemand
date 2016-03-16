@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Theater:</strong>
+  <%= @voucher.theater %>
+</p>
+
+<p>
+  <strong>Theater screen:</strong>
+  <%= @voucher.theater_screen %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @voucher.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @voucher.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @voucher.price %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @voucher.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_voucher_path(@voucher) %> |
+<%= link_to 'Back', vouchers_path %>

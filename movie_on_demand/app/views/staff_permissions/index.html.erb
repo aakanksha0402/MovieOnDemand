@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Staff Permissions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Manage seat</th>
+      <th>Manage vouchers</th>
+      <th>Manage show time</th>
+      <th>Manage tax info</th>
+      <th>Manage price per day</th>
+      <th>Is deleted</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @staff_permissions.each do |staff_permission| %>
+      <tr>
+        <td><%= staff_permission.manage_seat %></td>
+        <td><%= staff_permission.manage_vouchers %></td>
+        <td><%= staff_permission.manage_show_time %></td>
+        <td><%= staff_permission.manage_tax_info %></td>
+        <td><%= staff_permission.manage_price_per_day %></td>
+        <td><%= staff_permission.is_deleted %></td>
+        <td><%= link_to 'Show', staff_permission %></td>
+        <td><%= link_to 'Edit', edit_staff_permission_path(staff_permission) %></td>
+        <td><%= link_to 'Destroy', staff_permission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Staff permission', new_staff_permission_path %>

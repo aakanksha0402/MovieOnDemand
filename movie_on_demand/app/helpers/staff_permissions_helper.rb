@@ -1,0 +1,2 @@
+module StaffPermissionsHelper
+end

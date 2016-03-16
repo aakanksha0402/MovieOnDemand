@@ -1,0 +1,49 @@
+<%= form_for(@theater_seat) do |f| %>
+  <% if @theater_seat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@theater_seat.errors.count, "error") %> prohibited this theater_seat from being saved:</h2>
+
+      <ul>
+      <% @theater_seat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :theater_screen_id %><br>
+    <%= f.text_field :theater_screen_id %>
+  </div>
+  <div class="field">
+    <%= f.label :seat_type %><br>
+    <%= f.text_field :seat_type %>
+  </div>
+  <div class="field">
+    <%= f.label :row_count %><br>
+    <%= f.number_field :row_count %>
+  </div>
+  <div class="field">
+    <%= f.label :column_count %><br>
+    <%= f.number_field :column_count %>
+  </div>
+  <div class="field">
+    <%= f.label :price_multiple_factor %><br>
+    <%= f.text_field :price_multiple_factor %>
+  </div>
+  <div class="field">
+    <%= f.label :price_multiple_factor %><br>
+    <%= f.text_field :price_multiple_factor %>
+  </div>
+  <div class="field">
+    <%= f.label :tax_payable %><br>
+    <%= f.text_field :tax_payable %>
+  </div>
+  <div class="field">
+    <%= f.label :tax_payable %><br>
+    <%= f.text_field :tax_payable %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

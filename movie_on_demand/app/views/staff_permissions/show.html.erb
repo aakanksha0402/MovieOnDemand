@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Manage seat:</strong>
+  <%= @staff_permission.manage_seat %>
+</p>
+
+<p>
+  <strong>Manage vouchers:</strong>
+  <%= @staff_permission.manage_vouchers %>
+</p>
+
+<p>
+  <strong>Manage show time:</strong>
+  <%= @staff_permission.manage_show_time %>
+</p>
+
+<p>
+  <strong>Manage tax info:</strong>
+  <%= @staff_permission.manage_tax_info %>
+</p>
+
+<p>
+  <strong>Manage price per day:</strong>
+  <%= @staff_permission.manage_price_per_day %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @staff_permission.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_staff_permission_path(@staff_permission) %> |
+<%= link_to 'Back', staff_permissions_path %>

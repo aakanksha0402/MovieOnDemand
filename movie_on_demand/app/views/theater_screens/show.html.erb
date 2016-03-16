@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Theater:</strong>
+  <%= @theater_screen.theater %>
+</p>
+
+<p>
+  <strong>Screen no:</strong>
+  <%= @theater_screen.screen_no %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @theater_screen.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_theater_screen_path(@theater_screen) %> |
+<%= link_to 'Back', theater_screens_path %>

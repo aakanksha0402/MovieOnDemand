@@ -1,0 +1,33 @@
+<%= form_for(@theater_staff) do |f| %>
+  <% if @theater_staff.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@theater_staff.errors.count, "error") %> prohibited this theater_staff from being saved:</h2>
+
+      <ul>
+      <% @theater_staff.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :theater_id %><br>
+    <%= f.text_field :theater_id %>
+  </div>
+  <div class="field">
+    <%= f.label :staff_permission_id %><br>
+    <%= f.text_field :staff_permission_id %>
+  </div>
+  <div class="field">
+    <%= f.label :is_deleted %><br>
+    <%= f.check_box :is_deleted %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

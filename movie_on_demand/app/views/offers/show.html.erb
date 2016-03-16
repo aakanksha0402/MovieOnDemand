@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Theater:</strong>
+  <%= @offer.theater %>
+</p>
+
+<p>
+  <strong>Anme:</strong>
+  <%= @offer.anme %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @offer.description %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @offer.discount %>
+</p>
+
+<p>
+  <strong>Promo code:</strong>
+  <%= @offer.promo_code %>
+</p>
+
+<p>
+  <strong>Starting date:</strong>
+  <%= @offer.starting_date %>
+</p>
+
+<p>
+  <strong>Ending date:</strong>
+  <%= @offer.ending_date %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @offer.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>

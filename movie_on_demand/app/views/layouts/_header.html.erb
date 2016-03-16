@@ -1,0 +1,55 @@
+<nav class="navbar-default navbar-inverse">
+  <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Movie On Demand</a>
+      </div>
+      <div class="nav navbar-nav navbar-right dropdown" style="margin-right:50px;margin-top:13px">
+        <% if user_signed_in?%>
+          <%=link_to "Logout", destroy_user_session_path, method: :delete, class: "btn-lg"%>
+        <% else %>
+          <%=link_to "Register",'#myModal',{style: 'padding-right:10px',class: 'btn-lg','data-toggle': "modal"}%>
+          <%=link_to "Login", "#",class: 'btn-lg dropdown-toggle', 'data-toggle': "dropdown"%>
+
+          <div class="dropdown-menu login_signup" style="background-color: #484F52">
+            <%= render template: 'devise/sessions/new' %>
+          </div>
+        <%end%>
+
+      </div>
+
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content login_signup" style="background-color: #484F52">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Sign Up</h4>
+            </div>
+            <div class="modal-body">
+              <%=render template: 'devise/registrations/new'%>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</nav>
+<nav class="navbar navbar-default">
+      <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
+      <div class="nav navbar-nav" style="margin-top:5px">
+
+        <%=link_to "Home","/",class: "active btn btn-large" %>
+        <%=link_to "Films","#",class: "btn btn-large"%>
+        <%=link_to "Screening",'#',class: "btn btn-large"%>
+        <%=link_to "Create Screening",'#',class: "btn btn-large"%>
+        <% if user_signed_in? %>
+          <%=link_to "Edit Profile",class: "btn btn-large"%>
+        <% end %>
+      </div>
+    </div><!-- /.navbar-collapse -->
+</div>
+</nav>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Theater screen:</strong>
+  <%= @theater_seat.theater_screen %>
+</p>
+
+<p>
+  <strong>Seat type:</strong>
+  <%= @theater_seat.seat_type %>
+</p>
+
+<p>
+  <strong>Row count:</strong>
+  <%= @theater_seat.row_count %>
+</p>
+
+<p>
+  <strong>Column count:</strong>
+  <%= @theater_seat.column_count %>
+</p>
+
+<p>
+  <strong>Price multiple factor:</strong>
+  <%= @theater_seat.price_multiple_factor %>
+</p>
+
+<p>
+  <strong>Price multiple factor:</strong>
+  <%= @theater_seat.price_multiple_factor %>
+</p>
+
+<p>
+  <strong>Tax payable:</strong>
+  <%= @theater_seat.tax_payable %>
+</p>
+
+<p>
+  <strong>Tax payable:</strong>
+  <%= @theater_seat.tax_payable %>
+</p>
+
+<%= link_to 'Edit', edit_theater_seat_path(@theater_seat) %> |
+<%= link_to 'Back', theater_seats_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Theater Staffs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Theater</th>
+      <th>Staff permission</th>
+      <th>Is deleted</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @theater_staffs.each do |theater_staff| %>
+      <tr>
+        <td><%= theater_staff.user %></td>
+        <td><%= theater_staff.theater %></td>
+        <td><%= theater_staff.staff_permission %></td>
+        <td><%= theater_staff.is_deleted %></td>
+        <td><%= link_to 'Show', theater_staff %></td>
+        <td><%= link_to 'Edit', edit_theater_staff_path(theater_staff) %></td>
+        <td><%= link_to 'Destroy', theater_staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Theater staff', new_theater_staff_path %>

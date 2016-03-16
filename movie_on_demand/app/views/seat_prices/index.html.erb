@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Seat Prices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Theater</th>
+      <th>Weekdays</th>
+      <th>Weekdays</th>
+      <th>Weekends</th>
+      <th>Weekends</th>
+      <th>Is deleted</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seat_prices.each do |seat_price| %>
+      <tr>
+        <td><%= seat_price.theater %></td>
+        <td><%= seat_price.weekdays %></td>
+        <td><%= seat_price.weekdays %></td>
+        <td><%= seat_price.weekends %></td>
+        <td><%= seat_price.weekends %></td>
+        <td><%= seat_price.is_deleted %></td>
+        <td><%= link_to 'Show', seat_price %></td>
+        <td><%= link_to 'Edit', edit_seat_price_path(seat_price) %></td>
+        <td><%= link_to 'Destroy', seat_price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Seat price', new_seat_price_path %>

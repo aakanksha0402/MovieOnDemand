@@ -1,0 +1,41 @@
+<%= form_for(@staff_permission) do |f| %>
+  <% if @staff_permission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@staff_permission.errors.count, "error") %> prohibited this staff_permission from being saved:</h2>
+
+      <ul>
+      <% @staff_permission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :manage_seat %><br>
+    <%= f.check_box :manage_seat %>
+  </div>
+  <div class="field">
+    <%= f.label :manage_vouchers %><br>
+    <%= f.check_box :manage_vouchers %>
+  </div>
+  <div class="field">
+    <%= f.label :manage_show_time %><br>
+    <%= f.check_box :manage_show_time %>
+  </div>
+  <div class="field">
+    <%= f.label :manage_tax_info %><br>
+    <%= f.check_box :manage_tax_info %>
+  </div>
+  <div class="field">
+    <%= f.label :manage_price_per_day %><br>
+    <%= f.check_box :manage_price_per_day %>
+  </div>
+  <div class="field">
+    <%= f.label :is_deleted %><br>
+    <%= f.check_box :is_deleted %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

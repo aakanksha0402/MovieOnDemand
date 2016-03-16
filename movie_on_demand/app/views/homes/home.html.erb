@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <% if flash[:success] %>
+    <div class="alert alert-success"><%= flash[:success] %></div>
+  <% end %>
+  <h1>Welcome back user!</h1>
+<% else %>
+  <h1>You are Not Logged In.</h1>
+  <% end %>

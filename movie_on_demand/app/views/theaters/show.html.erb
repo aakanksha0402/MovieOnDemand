@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Users:</strong>
+  <%= @theater.users %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @theater.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @theater.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @theater.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @theater.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @theater.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @theater.country %>
+</p>
+
+<p>
+  <strong>Pincode:</strong>
+  <%= @theater.pincode %>
+</p>
+
+<p>
+  <strong>Unique key:</strong>
+  <%= @theater.unique_key %>
+</p>
+
+<p>
+  <strong>Total screens:</strong>
+  <%= @theater.total_screens %>
+</p>
+
+<p>
+  <strong>Enable:</strong>
+  <%= @theater.enable %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @theater.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_theater_path(@theater) %> |
+<%= link_to 'Back', theaters_path %>

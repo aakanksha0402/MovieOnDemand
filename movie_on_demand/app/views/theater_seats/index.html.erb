@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Theater Seats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Theater screen</th>
+      <th>Seat type</th>
+      <th>Row count</th>
+      <th>Column count</th>
+      <th>Price multiple factor</th>
+      <th>Price multiple factor</th>
+      <th>Tax payable</th>
+      <th>Tax payable</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @theater_seats.each do |theater_seat| %>
+      <tr>
+        <td><%= theater_seat.theater_screen %></td>
+        <td><%= theater_seat.seat_type %></td>
+        <td><%= theater_seat.row_count %></td>
+        <td><%= theater_seat.column_count %></td>
+        <td><%= theater_seat.price_multiple_factor %></td>
+        <td><%= theater_seat.price_multiple_factor %></td>
+        <td><%= theater_seat.tax_payable %></td>
+        <td><%= theater_seat.tax_payable %></td>
+        <td><%= link_to 'Show', theater_seat %></td>
+        <td><%= link_to 'Edit', edit_theater_seat_path(theater_seat) %></td>
+        <td><%= link_to 'Destroy', theater_seat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Theater seat', new_theater_seat_path %>
