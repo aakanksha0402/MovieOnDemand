@@ -69,6 +69,7 @@ class TheatersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def theater_params
+      
       params.require(:theater).permit(:users_id, :name, :phone, :address, :city, :state, :country, :pincode, :unique_key, :total_screens, :enable, :is_deleted)
     end
 end
