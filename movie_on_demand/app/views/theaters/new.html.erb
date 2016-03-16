@@ -1,5 +1,61 @@
-<h1>New Theater</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', theaters_path %>
+<div class="col-md-offset-3" style="margin-bottom:100px">
+<h1>Theatre Details</h1>
+<div id="myGroup">
+<div class="panel-group" id="accordion">
+<%= form_for @theater, url: theaters_create_path do |f| %>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align:center">
+        <h2><%=link_to "Basic Information",'#collapse2', 'data-parent': "#accordion",'data-toggle': :collapse%></h2>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="form-group">
+          <%=f.label "Theatre Name: "%>
+          <%=f.text_field :name,class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%=f.label "Address: "%>
+          <%=f.text_field :address,class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%=f.label "City: "%>
+          <%=f.text_field :city,class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%=f.label "State: "%>
+          <%=f.text_field :state,class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%=f.label "Country: "%>
+          <%=f.text_field :country,class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%=f.label "Pincode: "%>
+          <%=f.text_field :pincode,class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%=f.label "Phone Number: "%>
+          <%=f.text_field :phone,class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%=f.label "Number of screen: "%>
+          <%=f.text_field :total_screens,class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Submit", class: "form-control btn-primary"%>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+       <div class="panel-heading"  style="text-align:center">
+           <h2><%=link_to "Screening Information",'#collapse3', 'data-parent': "#accordion",'data-toggle': :collapse%></h2>
+       </div>
+       <div id="collapse3" class="panel-collapse collapse">
+         <div class="panel-body">Contains Information of theatre's screen.</div>
+       </div>
+     </div>
+   </div>
+<%end%>
+</div>
+</div>
+</div>

@@ -105,6 +105,24 @@ ActiveRecord::Schema.define(version: 20160316114113) do
 
   add_index "theaters", ["user_id"], name: "index_theaters_on_user_id", using: :btree
 
+  create_table "theatres", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.integer  "phone",         limit: 4
+    t.string   "address",       limit: 255
+    t.string   "city",          limit: 255
+    t.string   "state",         limit: 255
+    t.string   "country",       limit: 255
+    t.integer  "pin",           limit: 4
+    t.string   "unique_key",    limit: 255
+    t.integer  "total_screens", limit: 4
+    t.boolean  "is_delete"
+    t.integer  "user_id",       limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "theatres", ["user_id"], name: "index_theatres_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
     t.string   "encrypted_password",     limit: 255,   default: "", null: false
@@ -158,6 +176,7 @@ ActiveRecord::Schema.define(version: 20160316114113) do
   add_foreign_key "theater_staffs", "theaters"
   add_foreign_key "theater_staffs", "users"
   add_foreign_key "theaters", "users"
+  add_foreign_key "theatres", "users"
   add_foreign_key "vouchers", "theater_screens"
   add_foreign_key "vouchers", "theaters"
 end

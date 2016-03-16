@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'homes#home'
-
+  get 'users/sign_in' => redirect('/')
+  get 'users/sign_up' => redirect('/')
   resources :offers
   resources :vouchers
   resources :seat_prices
@@ -8,7 +9,10 @@ Rails.application.routes.draw do
   resources :theater_screens
   resources :theater_staffs
   resources :staff_permissions
-  resources :theaters
+  # resources :theaters
+  get 'theaters/new'
+  post 'theaters/create'
+
   resources :users_pages
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :homes
