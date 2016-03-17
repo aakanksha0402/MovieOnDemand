@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @movie_suggestion.user %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @movie_suggestion.name %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @movie_suggestion.details %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @movie_suggestion.status %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @movie_suggestion.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_movie_suggestion_path(@movie_suggestion) %> |
+<%= link_to 'Back', movie_suggestions_path %>

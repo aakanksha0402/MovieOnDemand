@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Movie:</strong>
+  <%= @screening.movie %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @screening.user %>
+</p>
+
+<p>
+  <strong>Theatre:</strong>
+  <%= @screening.theatre %>
+</p>
+
+<p>
+  <strong>Offer:</strong>
+  <%= @screening.offer %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @screening.start_time %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @screening.date %>
+</p>
+
+<p>
+  <strong>Approval filmmaker:</strong>
+  <%= @screening.approval_filmmaker %>
+</p>
+
+<p>
+  <strong>Approval theatre:</strong>
+  <%= @screening.approval_theatre %>
+</p>
+
+<p>
+  <strong>Threshold:</strong>
+  <%= @screening.threshold %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @screening.status %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @screening.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_screening_path(@screening) %> |
+<%= link_to 'Back', screenings_path %>

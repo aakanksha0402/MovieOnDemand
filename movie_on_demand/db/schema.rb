@@ -11,7 +11,119 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316114113) do
+ActiveRecord::Schema.define(version: 20160317061035) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "question_id", limit: 4
+    t.string   "answer_name", limit: 255
+    t.boolean  "is_deleted"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+
+  create_table "booked_seats", force: :cascade do |t|
+    t.integer  "theatre_seat_id",       limit: 4
+    t.integer  "booking_id",            limit: 4
+    t.string   "status_of_booked_seat", limit: 255
+    t.boolean  "is_deleted"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "booked_seats", ["booking_id"], name: "index_booked_seats_on_booking_id", using: :btree
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "screening_id", limit: 4
+    t.integer  "user_id",      limit: 4
+    t.integer  "seat_count",   limit: 4
+    t.boolean  "is_deleted"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "bookings", ["screening_id"], name: "index_bookings_on_screening_id", using: :btree
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "community_id", limit: 4
+    t.integer  "user_id",      limit: 4
+    t.text     "comment",      limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "comments", ["community_id"], name: "index_comments_on_community_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "communities", force: :cascade do |t|
+    t.integer  "user_id",     limit: 4
+    t.integer  "movie_id",    limit: 4
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "communities", ["movie_id"], name: "index_communities_on_movie_id", using: :btree
+  add_index "communities", ["user_id"], name: "index_communities_on_user_id", using: :btree
+
+  create_table "genre_movies", force: :cascade do |t|
+    t.integer "genre_id", limit: 4
+    t.integer "movie_id", limit: 4
+  end
+
+  add_index "genre_movies", ["genre_id"], name: "index_genre_movies_on_genre_id", using: :btree
+  add_index "genre_movies", ["movie_id"], name: "index_genre_movies_on_movie_id", using: :btree
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "parent_id",  limit: 4
+    t.boolean  "is_deleted"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "language_movies", force: :cascade do |t|
+    t.integer "language_id", limit: 4
+    t.integer "movie_id",    limit: 4
+  end
+
+  add_index "language_movies", ["language_id"], name: "index_language_movies_on_language_id", using: :btree
+  add_index "language_movies", ["movie_id"], name: "index_language_movies_on_movie_id", using: :btree
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "language",   limit: 255
+    t.boolean  "is_deleted"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "movie_suggestions", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.string   "name",       limit: 255
+    t.string   "details",    limit: 255
+    t.boolean  "status"
+    t.boolean  "is_deleted"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "movie_suggestions", ["user_id"], name: "index_movie_suggestions_on_user_id", using: :btree
+
+  create_table "movies", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.string   "director",        limit: 255
+    t.string   "starring",        limit: 255
+    t.date     "released_on"
+    t.decimal  "rating",                        precision: 10
+    t.text     "description",     limit: 65535
+    t.string   "duration",        limit: 255
+    t.integer  "screening_count", limit: 4
+    t.boolean  "is_delete"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
 
   create_table "offers", force: :cascade do |t|
     t.integer  "theater_id",    limit: 4
@@ -27,6 +139,69 @@ ActiveRecord::Schema.define(version: 20160316114113) do
   end
 
   add_index "offers", ["theater_id"], name: "index_offers_on_theater_id", using: :btree
+
+  create_table "payments", force: :cascade do |t|
+    t.integer  "bookedseat_id",     limit: 4
+    t.decimal  "amount",                        precision: 10
+    t.string   "mode_of_payment",   limit: 255
+    t.boolean  "status_of_payment"
+    t.boolean  "is_deleted"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
+
+  create_table "promotions", force: :cascade do |t|
+    t.integer  "movie_id",   limit: 4
+    t.text     "whatsapp",   limit: 65535
+    t.text     "facebook",   limit: 65535
+    t.text     "twitter",    limit: 65535
+    t.string   "link",       limit: 255
+    t.boolean  "is_deleted"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "promotions", ["movie_id"], name: "index_promotions_on_movie_id", using: :btree
+
+  create_table "question_answers", force: :cascade do |t|
+    t.integer "survey_id",   limit: 4
+    t.integer "user_id",     limit: 4
+    t.integer "question_id", limit: 4
+    t.integer "answer_id",   limit: 4
+  end
+
+  add_index "question_answers", ["answer_id"], name: "index_question_answers_on_answer_id", using: :btree
+  add_index "question_answers", ["question_id"], name: "index_question_answers_on_question_id", using: :btree
+  add_index "question_answers", ["survey_id"], name: "index_question_answers_on_survey_id", using: :btree
+  add_index "question_answers", ["user_id"], name: "index_question_answers_on_user_id", using: :btree
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "question_name", limit: 255
+    t.boolean  "is_deleted"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "screenings", force: :cascade do |t|
+    t.integer  "movie_id",           limit: 4
+    t.integer  "user_id",            limit: 4
+    t.integer  "theatre_id",         limit: 4
+    t.integer  "offer_id",           limit: 4
+    t.datetime "start_time"
+    t.date     "date"
+    t.boolean  "approval_filmmaker"
+    t.boolean  "approval_theatre"
+    t.integer  "threshold",          limit: 4
+    t.boolean  "status"
+    t.boolean  "is_deleted"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "screenings", ["movie_id"], name: "index_screenings_on_movie_id", using: :btree
+  add_index "screenings", ["offer_id"], name: "index_screenings_on_offer_id", using: :btree
+  add_index "screenings", ["theatre_id"], name: "index_screenings_on_theatre_id", using: :btree
+  add_index "screenings", ["user_id"], name: "index_screenings_on_user_id", using: :btree
 
   create_table "seat_prices", force: :cascade do |t|
     t.integer  "theater_id", limit: 4
@@ -48,6 +223,14 @@ ActiveRecord::Schema.define(version: 20160316114113) do
     t.boolean  "is_deleted"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+    t.boolean  "is_deleted"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "theater_screens", force: :cascade do |t|
@@ -168,7 +351,29 @@ ActiveRecord::Schema.define(version: 20160316114113) do
   add_index "vouchers", ["theater_id"], name: "index_vouchers_on_theater_id", using: :btree
   add_index "vouchers", ["theater_screen_id"], name: "index_vouchers_on_theater_screen_id", using: :btree
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "booked_seats", "bookings"
+  add_foreign_key "bookings", "screenings"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "comments", "communities"
+  add_foreign_key "comments", "users"
+  add_foreign_key "communities", "movies"
+  add_foreign_key "communities", "users"
+  add_foreign_key "genre_movies", "genres"
+  add_foreign_key "genre_movies", "movies"
+  add_foreign_key "language_movies", "languages"
+  add_foreign_key "language_movies", "movies"
+  add_foreign_key "movie_suggestions", "users"
   add_foreign_key "offers", "theaters"
+  add_foreign_key "promotions", "movies"
+  add_foreign_key "question_answers", "answers"
+  add_foreign_key "question_answers", "questions"
+  add_foreign_key "question_answers", "surveys"
+  add_foreign_key "question_answers", "users"
+  add_foreign_key "screenings", "movies"
+  add_foreign_key "screenings", "offers"
+  add_foreign_key "screenings", "theatres"
+  add_foreign_key "screenings", "users"
   add_foreign_key "seat_prices", "theaters"
   add_foreign_key "theater_screens", "theaters"
   add_foreign_key "theater_seats", "theater_screens"

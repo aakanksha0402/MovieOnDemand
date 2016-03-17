@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Movie:</strong>
+  <%= @promotion.movie %>
+</p>
+
+<p>
+  <strong>Whatsapp:</strong>
+  <%= @promotion.whatsapp %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @promotion.facebook %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @promotion.twitter %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @promotion.link %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @promotion.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_promotion_path(@promotion) %> |
+<%= link_to 'Back', promotions_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Booked Seats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Theatre seat</th>
+      <th>Booking</th>
+      <th>Status of booked seat</th>
+      <th>Is deleted</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @booked_seats.each do |booked_seat| %>
+      <tr>
+        <td><%= booked_seat.theatre_seat %></td>
+        <td><%= booked_seat.booking %></td>
+        <td><%= booked_seat.status_of_booked_seat %></td>
+        <td><%= booked_seat.is_deleted %></td>
+        <td><%= link_to 'Show', booked_seat %></td>
+        <td><%= link_to 'Edit', edit_booked_seat_path(booked_seat) %></td>
+        <td><%= link_to 'Destroy', booked_seat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Booked seat', new_booked_seat_path %>

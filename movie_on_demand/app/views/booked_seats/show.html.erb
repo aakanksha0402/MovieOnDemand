@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Theatre seat:</strong>
+  <%= @booked_seat.theatre_seat %>
+</p>
+
+<p>
+  <strong>Booking:</strong>
+  <%= @booked_seat.booking %>
+</p>
+
+<p>
+  <strong>Status of booked seat:</strong>
+  <%= @booked_seat.status_of_booked_seat %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @booked_seat.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_booked_seat_path(@booked_seat) %> |
+<%= link_to 'Back', booked_seats_path %>

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Screenings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Movie</th>
+      <th>User</th>
+      <th>Theatre</th>
+      <th>Offer</th>
+      <th>Start time</th>
+      <th>Date</th>
+      <th>Approval filmmaker</th>
+      <th>Approval theatre</th>
+      <th>Threshold</th>
+      <th>Status</th>
+      <th>Is deleted</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @screenings.each do |screening| %>
+      <tr>
+        <td><%= screening.movie %></td>
+        <td><%= screening.user %></td>
+        <td><%= screening.theatre %></td>
+        <td><%= screening.offer %></td>
+        <td><%= screening.start_time %></td>
+        <td><%= screening.date %></td>
+        <td><%= screening.approval_filmmaker %></td>
+        <td><%= screening.approval_theatre %></td>
+        <td><%= screening.threshold %></td>
+        <td><%= screening.status %></td>
+        <td><%= screening.is_deleted %></td>
+        <td><%= link_to 'Show', screening %></td>
+        <td><%= link_to 'Edit', edit_screening_path(screening) %></td>
+        <td><%= link_to 'Destroy', screening, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Screening', new_screening_path %>

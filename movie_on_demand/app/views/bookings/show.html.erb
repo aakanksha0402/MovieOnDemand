@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Screening:</strong>
+  <%= @booking.screening %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @booking.user %>
+</p>
+
+<p>
+  <strong>Seat count:</strong>
+  <%= @booking.seat_count %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @booking.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>

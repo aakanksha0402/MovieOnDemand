@@ -1,0 +1,33 @@
+<%= form_for(@booked_seat) do |f| %>
+  <% if @booked_seat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booked_seat.errors.count, "error") %> prohibited this booked_seat from being saved:</h2>
+
+      <ul>
+      <% @booked_seat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :theatre_seat %><br>
+    <%= f.text_field :theatre_seat %>
+  </div>
+  <div class="field">
+    <%= f.label :booking_id %><br>
+    <%= f.text_field :booking_id %>
+  </div>
+  <div class="field">
+    <%= f.label :status_of_booked_seat %><br>
+    <%= f.text_field :status_of_booked_seat %>
+  </div>
+  <div class="field">
+    <%= f.label :is_deleted %><br>
+    <%= f.check_box :is_deleted %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

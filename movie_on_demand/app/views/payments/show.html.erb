@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bookedseat:</strong>
+  <%= @payment.bookedseat %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @payment.amount %>
+</p>
+
+<p>
+  <strong>Mode of payment:</strong>
+  <%= @payment.mode_of_payment %>
+</p>
+
+<p>
+  <strong>Status of payment:</strong>
+  <%= @payment.status_of_payment %>
+</p>
+
+<p>
+  <strong>Is deleted:</strong>
+  <%= @payment.is_deleted %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>
