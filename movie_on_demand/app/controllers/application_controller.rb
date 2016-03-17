@@ -23,7 +23,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    user_pages_edit_user_details_path
+    if user_details_empty
+      user_pages_new_path
+    else
+      root_path
+    end
   end
 
   protected

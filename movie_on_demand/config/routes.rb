@@ -33,9 +33,11 @@ Rails.application.routes.draw do
 
 
 
-  # resources :user_pages
-  get 'user_pages/edit_user_details'
-  patch 'user_pages/update_user_details'
+  #resources :user_pages
+  get 'user_pages/new'
+  patch 'user_pages/update'
+  # get 'user_pages/edit_user_details'
+  # patch 'user_pages/update_user_details'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :homes
