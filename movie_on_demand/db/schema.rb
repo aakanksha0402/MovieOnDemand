@@ -185,7 +185,7 @@ ActiveRecord::Schema.define(version: 20160317061035) do
   create_table "screenings", force: :cascade do |t|
     t.integer  "movie_id",           limit: 4
     t.integer  "user_id",            limit: 4
-    t.integer  "theatre_id",         limit: 4
+    t.integer  "theater_id",         limit: 4
     t.integer  "offer_id",           limit: 4
     t.datetime "start_time"
     t.date     "date"
@@ -200,7 +200,7 @@ ActiveRecord::Schema.define(version: 20160317061035) do
 
   add_index "screenings", ["movie_id"], name: "index_screenings_on_movie_id", using: :btree
   add_index "screenings", ["offer_id"], name: "index_screenings_on_offer_id", using: :btree
-  add_index "screenings", ["theatre_id"], name: "index_screenings_on_theatre_id", using: :btree
+  add_index "screenings", ["theater_id"], name: "index_screenings_on_theater_id", using: :btree
   add_index "screenings", ["user_id"], name: "index_screenings_on_user_id", using: :btree
 
   create_table "seat_prices", force: :cascade do |t|
@@ -288,24 +288,6 @@ ActiveRecord::Schema.define(version: 20160317061035) do
 
   add_index "theaters", ["user_id"], name: "index_theaters_on_user_id", using: :btree
 
-  create_table "theatres", force: :cascade do |t|
-    t.string   "name",          limit: 255
-    t.integer  "phone",         limit: 4
-    t.string   "address",       limit: 255
-    t.string   "city",          limit: 255
-    t.string   "state",         limit: 255
-    t.string   "country",       limit: 255
-    t.integer  "pin",           limit: 4
-    t.string   "unique_key",    limit: 255
-    t.integer  "total_screens", limit: 4
-    t.boolean  "is_delete"
-    t.integer  "user_id",       limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-  end
-
-  add_index "theatres", ["user_id"], name: "index_theatres_on_user_id", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
     t.string   "encrypted_password",     limit: 255,   default: "", null: false
@@ -372,7 +354,7 @@ ActiveRecord::Schema.define(version: 20160317061035) do
   add_foreign_key "question_answers", "users"
   add_foreign_key "screenings", "movies"
   add_foreign_key "screenings", "offers"
-  add_foreign_key "screenings", "theatres"
+  add_foreign_key "screenings", "theaters"
   add_foreign_key "screenings", "users"
   add_foreign_key "seat_prices", "theaters"
   add_foreign_key "theater_screens", "theaters"
@@ -381,7 +363,6 @@ ActiveRecord::Schema.define(version: 20160317061035) do
   add_foreign_key "theater_staffs", "theaters"
   add_foreign_key "theater_staffs", "users"
   add_foreign_key "theaters", "users"
-  add_foreign_key "theatres", "users"
   add_foreign_key "vouchers", "theater_screens"
   add_foreign_key "vouchers", "theaters"
 end

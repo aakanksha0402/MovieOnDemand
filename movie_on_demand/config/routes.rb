@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   root 'homes#home'
   get 'users/sign_in' => redirect('/')
   get 'users/sign_up' => redirect('/')
-  post 'users/sign_in' => redirect('/')
-  post 'users/sign_up' => redirect('/')
   resources :offers
   resources :vouchers
   resources :seat_prices

@@ -3,7 +3,7 @@ class CreateScreenings < ActiveRecord::Migration
     create_table :screenings do |t|
       t.references :movie, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
-      t.references :theatre, index: true, foreign_key: true
+      t.references :theater, index: true, foreign_key: true
       t.references :offer, index: true, foreign_key: true
       t.datetime :start_time
       t.date :date
