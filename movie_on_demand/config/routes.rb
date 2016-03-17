@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'homes#home'
   get 'users/sign_in' => redirect('/')
   get 'users/sign_up' => redirect('/')
+  post 'users/sign_in' => redirect('/')
+  post 'users/sign_up' => redirect('/')
   resources :offers
   resources :vouchers
   resources :seat_prices
@@ -17,9 +19,11 @@ Rails.application.routes.draw do
 
 
 
-  # resources :user_pages
-  get 'user_pages/edit_user_details'
-  patch 'user_pages/update_user_details'
+  #resources :user_pages
+  get 'user_pages/new'
+  patch 'user_pages/update'
+  # get 'user_pages/edit_user_details'
+  # patch 'user_pages/update_user_details'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :homes

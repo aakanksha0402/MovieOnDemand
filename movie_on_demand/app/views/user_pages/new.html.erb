@@ -1,2 +1,53 @@
-<h1>UserPages#new</h1>
-<p>Find me in app/views/user_pages/new.html.erb</p>
+<div class="col-md-offset-4 col-md-5">
+  <h4>Please edit your personal details</h4>
+
+  <%= form_for @user, url: user_pages_update_path do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-group">
+    <%= f.label :'Full Name' %>
+    <%= f.text_field :fullname, autofocus: true,placeholder: "Your Full Name",required:true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_area :address, autofocus: true,placeholder: "Your Address",required:true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :pincode %>
+    <%= f.text_field :pincode, autofocus: true,placeholder: "Pin Code",required:true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :city %>
+    <%= f.text_field :city, autofocus: true,placeholder: "City",required:true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :state %>
+    <%= f.text_field :state, autofocus: true,placeholder: "State",required:true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :country %>
+    <%= f.text_field :country, autofocus: true,placeholder: "Country",required:true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :dob %>
+    <%= f.text_field :dob,readonly: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :gender, "Male", :value => "true"  %>
+    <%= f.radio_button :gender, false, checked: true %>
+    <%= f.label :gender, "Female", :value => "false" %>
+    <%= f.radio_button :gender, true %>
+    </div>
+
+    <div class="form-group">
+    <%= f.submit "Save Details",class: 'btn btn-lg btn-primary btn-block' %>
+    </div>
+  <% end %>
+</div>

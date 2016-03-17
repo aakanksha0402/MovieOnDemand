@@ -3,6 +3,7 @@ class UserPagesController < ApplicationController
   end
 
   def new
+    @user = current_user
   end
 
   def create
@@ -12,6 +13,13 @@ class UserPagesController < ApplicationController
   end
 
   def update
+    @user = User.find(current_user.id)
+      if @user.update(user_params)
+        flash[:success] = "Profile successfully updated!!"
+        redirect_to '/'
+      else
+        render 'edit'
+      end
   end
 
   def show
@@ -19,21 +27,6 @@ class UserPagesController < ApplicationController
 
   def destroy
   end
-
-  def edit_user_details
-    @user = current_user
-  end
-
-  def update_user_details
-    @user = User.find(current_user.id)
-      if @user.update(user_params)
-        flash[:success] = "Profile successfully updated!!"
-        redirect_to '/'
-      else
-        render 'edit_user_details'
-      end
-  end
-
 
   private
 

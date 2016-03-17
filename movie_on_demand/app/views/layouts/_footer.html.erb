@@ -1,8 +1,12 @@
 <footer class="navbar-fixed-bottom navbar-inverse">
   <center>
-
-    <%=link_to "Register Your Theatre",theaters_new_path %>
-
+    <% if user_signed_in? %>
+      <%=link_to "Register Your Theatre",theaters_new_path %>
+    <% else %>
+      <%=link_to "Register Your Theatre","#",id: "register_theater", 'data-toggle': "popover", 'data-content': "You need to login first"  %>
+    <% end %>
     <p>&copy; Company 2016</p>
   </center>
 </footer>
+
+<script>

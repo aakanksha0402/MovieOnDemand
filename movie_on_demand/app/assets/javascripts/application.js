@@ -25,4 +25,7 @@ $(function(){
   yearRange: '-60:-18',
   defaultDate: '1956-01-01'
 });
+
+$('#register_theater').popover();
+
 });
